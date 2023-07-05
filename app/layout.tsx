@@ -1,5 +1,12 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import NavBar from './components/home/NavBar'
+import Footer from './components/home/Footer'
+
+const iransens = localFont({
+  src : '../public/fonts/Sans a4fran3.ttf'
+})
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      
+      <body className={iransens.className}>
+      <NavBar />
+        {children}
+        <Footer />
+        </body>
     </html>
   )
 }
