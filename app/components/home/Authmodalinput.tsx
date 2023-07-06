@@ -57,8 +57,12 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             password: inputs.password,
           }),
         }).then(async (e) => {
-
-          if (e.status === 402) {
+             if (e.status === 500) {
+              setSucces(false)
+              setErrorauth("سرور خاموش میباشد بعدا امتحان کنید")
+              setLoiading( false)
+  
+            }else if (e.status === 402) {
             
             setSucces(false);
             setErrorauth("همچین ایمیلی وجود ندارد ");
@@ -130,7 +134,12 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
           }),
         })
           .then((data) => {
-            if (data.status === 404) {
+               if (data.status === 500) {
+              setSucces(false)
+              setErrorauth("سرور خاموش میباشد بعدا امتحان کنید")
+              setLoiading( false)
+  
+            }else if (data.status === 404) {
               setSucces(false);
               setErrorauth(
                 "ایمیل قبلا در سایت ثبت شده لطفا از ایمیل جدید استفاده کنید"
