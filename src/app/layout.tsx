@@ -5,8 +5,8 @@ import NavBar from './components/home/NavBar'
 import Footer from './components/home/Footer'
 
 const iransens = localFont({
-  src : '../public/fonts/Sans a4fran3.ttf'
-})
+  src : '../../public/fonts/Sans a4fran3.ttf'
+})  
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +20,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  
   return (
     <html lang="en">
       

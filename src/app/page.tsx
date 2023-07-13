@@ -7,13 +7,13 @@ export default function Home() {
 
   return (
     <main className="text-gray-200 mt-20 w-full">
-      <h1 className="text-4xl text-center mt-10">
-        به سایت خودتون یعنی منوگراف خوش آمدی
+      <h1 className="text-4xl max-sm:text-lg text-center mt-10">
+        به سایت خودتون یعنی منوگراف خوش آمد
       </h1>
-      <div className="text-center grid grid-cols-2 w-full">
+      <div className="text-center max-sm:grid-cols-1 grid grid-cols-2 w-full">
         <div className="w1/3">
-          <p className="w-2/3 text-gray-400 p-6 rounded mt-28 ml-12 text-2xl text-right">
-            ما در این سایت سعی کردیم که با کمک از بهترین نمونه های داخلی و یا
+          <p className="w-2.8/3 text-gray-400 p-6 rounded max-md:mt-8 max-md:text-lg mt-28 ml-12 text-2xl text-right">
+            ما در این سایتسعی کردیم که با کمک از بهترین نمونه های داخلی و یا
             خارجی برای شما قابلیت رزرو رستوران ها کافه ها و همچنین سفارش از طریق
             منوی خاص رو در اختیارتون قرار بدیم پس اگر شما هم یکی از کارفرماها
             هستین در استفاده از منوگراف شک نکنید چون با ملبلغ کمی نسبت به کارایی
@@ -27,11 +27,11 @@ export default function Home() {
         </div>
       </div>
       <section className="w-full h-full bg-neutral-900">
-        <h1 className=" mt-24 text-center text-3xl">
+        <h1 className=" mt-24 max-md:text-2lg text-center text-3xl">
           {" "}
           چرا منوگراف و انتخاب کنم ؟
         </h1>
-        <div className=" mt-20 grid grid-cols-4 text-center">
+        <div className=" mt-20 grid max-sm:grid-cols-1 grid-cols-4 text-center">
       
          
           <Whycard para="

@@ -46,13 +46,12 @@ model Restaurant {
 
 model  Item {
   id     Int   @id  @default(autoincrement())
-  images       String[]
+  image       String
   name         String
-  description   String
   category      String
+  price        Int
   restaurant_id   Int
   restaurant    Restaurant @relation(fields: [restaurant_id] , references: [id])
-  price        String
   created_at   DateTime      @default(now())
   updated_at   DateTime      @updatedAt
 }
