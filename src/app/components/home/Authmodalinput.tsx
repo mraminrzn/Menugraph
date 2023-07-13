@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Eyes } from "./eyesvg/Eyes";
+import { useRouter } from "next/navigation";
 
 const validname = /^[\u0600-\u06FF\s]+$/;
 const validnumber = /^\d{11}$/;
@@ -23,6 +24,8 @@ interface props {
 }
 
 const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props) => {
+
+  const router = useRouter()
   const [eyes, setEyes] = useState(false);
   const [eyes2, setEyes2] = useState(false);
   const [errorauth, setErrorauth] = useState("");
@@ -81,8 +84,9 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             const token = await e.json().then(e => e.token);
             setTimeout(() => {
               setOpen(false)
+              router.refresh()
               
-            }, 2000);
+            }, 1000);
           }
         });
       }
