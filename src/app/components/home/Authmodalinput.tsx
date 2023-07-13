@@ -1,15 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { Eyes } from "./eyesvg/Eyes";
-import { jwtVerify } from "jose";
-import { getUrlSecret } from "./getUrlSecret";
-import { useRouter } from "next/navigation";
 
 const validname = /^[\u0600-\u06FF\s]+$/;
 const validnumber = /^\d{11}$/;
 const validemail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 const validpassword = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
-
 
 interface props {
   inputs: {
@@ -27,7 +23,6 @@ interface props {
 }
 
 const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props) => {
-  const router = useRouter()
   const [eyes, setEyes] = useState(false);
   const [eyes2, setEyes2] = useState(false);
   const [errorauth, setErrorauth] = useState("");
@@ -35,10 +30,12 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
   const [loading , setLoiading] = useState(false)
   const [token , setToken] = useState('')
 
+  console.log(inputs.Restaurantname);
   
 
   
   function submithandeler() {
+    console.log(validname.test(inputs.Restaurantname));
 
 
     if (issignin) {
@@ -59,44 +56,33 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             email: inputs.email,
             password: inputs.password,
           }),
-        }).then(async (e) => {         
-             const mesage =await e.json()
+        }).then(async (e) => {
 
-          if (e.status === 500) {
-            setSucces(false)
-            setErrorauth("سرور خاموش میباشد بعدا امتحان کنید")
-            setLoiading( false)
-
-          }else
-          
-          if (e.status === 404) {
+          if (e.status === 402) {
             
             setSucces(false);
-            setErrorauth(mesage.message);
+            setErrorauth("همچین ایمیلی وجود ندارد ");
             setLoiading( false)
+            console.log(e.status);
             
              
+          } else if (e.status === 404) {
+            setSucces(false);
+            setErrorauth("رمز اشتباه می باشد ");
+            setLoiading(false)
+          }else if (e.status === 405){
+            setSucces(false);
+            setErrorauth("تلاش های زیادی داشتین لطفا 1 دقیقه دیگه امتحان کنید ");
+            setLoiading(false)
           } else {
             setSucces(true);
-            setErrorauth(mesage.message);
+            setErrorauth("ورود با موفقیت انجام شد ");
             setLoiading( false)
-
-            const secret = new TextEncoder().encode(String(getUrlSecret()) );
-            const data = await jwtVerify( mesage.token , secret)
-            .then(e => console.log(e)
-            )
-            .catch( (e) =>
-              new Error(e)
-            )
-             
-            
-
-            
+            const token = await e.json().then(e => e.token);
             setTimeout(() => {
-              router.refresh()
               setOpen(false)
               
-            }, 1000);
+            }, 2000);
           }
         });
       }
@@ -143,18 +129,11 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             password: inputs.password,
           }),
         })
-          .then(async (data) => {
-            const mesage =await data.json()
-
-            if (data.status === 500) {
-              setSucces(false)
-              setErrorauth("سرور خاموش میباشد بعدا امتحان کنید")
-              setLoiading( false)
-  
-            }else  if (data.status === 404) {
+          .then((data) => {
+            if (data.status === 404) {
               setSucces(false);
               setErrorauth(
-                mesage.message
+                "ایمیل قبلا در سایت ثبت شده لطفا از ایمیل جدید استفاده کنید"
               );
               setLoiading( false)
 
