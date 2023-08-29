@@ -22,13 +22,14 @@ const page = async () => {
         <span className=" text-cyan-400">منوگراف </span> همکاری میکنن
       </h1>
       <div className=" flex mb-40">
-        {data.map((data: any) => (
+        {/* {data.map((data: any) => (
           <RestaurantListCards
             lastname={data.lastname}
             Restaurantname={data.Restaurantname}
             email={data.email}
+            key={data.Restaurantname}
           />
-        ))}
+        ))} */}
         <img />
       </div>
     </div>
