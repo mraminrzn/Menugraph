@@ -1,17 +1,7 @@
 import React from "react";
-import RestaurantListCards from "../components/resataurantlist/RestaurantListCards";
-import { getAllRestaurants } from "./geAllRestaurants";
 
 const page = async () => {
-  const data = await getAllRestaurants();
-  const test = [
-    { lastname: 'راز', Restaurantname: 'هیوا', email: 'Hiva@gmail.com' },
-    {
-      lastname: 'سالاری',
-      Restaurantname: 'زمرد',
-      email: 'zomorod@gmail.com'
-    }
-  ]
+
   
 
 
