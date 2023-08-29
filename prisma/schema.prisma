@@ -29,42 +29,39 @@ model User {
 }
 
 model Restaurant {
-  id           Int           @id @default(autoincrement())
-  name         String
-  lastname     String
-  password     String
-  Restaurantname        String  @unique
-  logo         String?
-  accepted     Boolean @default(false)
-  items        Item[]
-  reserve_list ReserveList[]
-  phone        String
-  email        String        @unique
-  created_at   DateTime      @default(now())
-  updated_at   DateTime      @updatedAt
+  id             Int           @id @default(autoincrement())
+  name           String
+  lastname       String
+  password       String
+  Restaurantname String        @unique
+  Restaurantnamepa String        @unique
+  logo           String?
+  accepted       Boolean       @default(false)
+  items          Item[]
+  reserve_list   ReserveList[]
+  phone          String
+  email          String        @unique
+  created_at     DateTime      @default(now())
+  updated_at     DateTime      @updatedAt
 }
 
-model  Item {
-  id     Int   @id  @default(autoincrement())
-  image       String
-  name         String
+model Item {
+  id            Int        @id @default(autoincrement())
+  image         String
+  name          String
   category      String
-  price        Int
-  restaurant_id   Int
-  restaurant    Restaurant @relation(fields: [restaurant_id] , references: [id])
-  created_at   DateTime      @default(now())
-  updated_at   DateTime      @updatedAt
+  price         Int
+  restaurant_id Int
+  restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
 }
 
 model ReserveList {
-  id           Int           @id @default(autoincrement())
+  id            Int        @id @default(autoincrement())
   reservelist   Json[]
-  restaurant_id   Int
-  restaurant    Restaurant @relation(fields: [restaurant_id] , references: [id])
-  created_at   DateTime      @default(now())
-  updated_at   DateTime      @updatedAt
+  restaurant_id Int
+  restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
 }
-
-
-
-

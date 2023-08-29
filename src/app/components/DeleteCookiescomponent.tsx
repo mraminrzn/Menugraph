@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const DeleteCookiescomponent = () => {
+const DeleteCookiescomponent = ({setclick} : {setclick : Function}) => {
     const router = useRouter()
 
     function deleteCook() {
@@ -15,15 +15,15 @@ const DeleteCookiescomponent = () => {
             key : "JWT"
           }),
         })
-        .then(e => console.log(e)
-        )
-        .catch( e => console.log(e)
-        )
+        
+        
 
            setTimeout(() => {
              router.refresh()
              router.push("/")
            }, 300);
+
+           setclick(true)
             
       }
     return (

@@ -10,6 +10,7 @@ interface Props {
   lastname: string;
   phone: string;
   Restaurantname: string;
+  Restaurantnamepa: string;
   email: string;
   password: string;
 }
@@ -17,7 +18,7 @@ interface Props {
 const limiter = Limiter();
 
 export async function POST(req: Request) {
-  const { name, lastname, phone, Restaurantname, email, password }: Props =
+  const { name, lastname, phone, Restaurantname,Restaurantnamepa, email, password }: Props =
     await req.json();
 
   const reamaining = await (await limiter).removeTokens(1);
@@ -57,6 +58,7 @@ export async function POST(req: Request) {
         phone: phone,
         email: email,
         Restaurantname: Restaurantname,
+        Restaurantnamepa: Restaurantnamepa,
         password: await bcrypt.hash(password, 10),
       },
     });

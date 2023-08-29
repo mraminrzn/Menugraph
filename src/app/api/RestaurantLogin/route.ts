@@ -83,7 +83,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 
     if (hashpass?.accepted) {
-      // console.log("accepted" , cookies().getAll());
       cookies().set("JWT" , token , {secure : true ,maxAge : 60* 60 * 24 } )
       
       return new NextResponse(

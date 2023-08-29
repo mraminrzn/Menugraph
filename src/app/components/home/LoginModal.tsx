@@ -17,10 +17,10 @@ const style = {
   
 };
 
-export default function LoginModal({isignin} : {isignin : boolean}) {
+export default function LoginModal({isignin , setclick} : {isignin : boolean , setclick:Function}) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () =>{  setOpen(true); setclick(true) }
+  const handleClose = () =>{ setOpen(false); setclick(true)}
 
   const inputauthHandeler = (e : React.ChangeEvent<HTMLInputElement>) => {
       setAuthinput({
@@ -37,13 +37,14 @@ export default function LoginModal({isignin} : {isignin : boolean}) {
            password : "",
            repassword : "",
            Restaurantname : "",
-  })
+           Restaurantnamepa : "",
+          })
 
   return (
     <div>
       <button
         onClick={handleOpen}
-        className=" text-gray-100 max-sm:text-sm  text-lg transition duration-500 hover:text-emerald-600"
+        className=" text-gray-100   text-lg transition duration-500 hover:text-emerald-600"
         >
         {isignin ? "ورود" : "ثبت نام"}
       </button>

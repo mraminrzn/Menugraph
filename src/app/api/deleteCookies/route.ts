@@ -4,13 +4,17 @@ import { cookies } from "next/headers";
 export async function POST(
     req : Request
 ){
-const {key} = await req.json()
+const {key}:any = await req.json()
 
 
 
-console.log(cookies().delete(key));
+    if (key) {
+        
+        cookies().delete(key);
+    }
 
 
 
-return  NextResponse.json({"message " : key})
+
+return NextResponse.json({ "message ": key })
 }

@@ -21,7 +21,6 @@ const Deletebtn = ({id} : {id : any}) => {
         })
        })
        .then(e => {
-        console.log(e);
         setTimeout(() => {
             router.refresh()
         }, 1000);

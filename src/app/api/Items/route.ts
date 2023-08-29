@@ -23,11 +23,9 @@ export async function POST(
         }
     })
     
-//    .then(e => console.log(e)
 //    )
    const data = await createItem 
    
-   console.log(data);
    
 
     return NextResponse.json({data} )

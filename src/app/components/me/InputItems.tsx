@@ -15,7 +15,6 @@ const InputItems = ({ id }: { id: any }) => {
   });
 
   function submithandeler() {
-    console.log("hi");
 
     fetch("/api/Items", {
       method: "POST",
@@ -31,7 +30,6 @@ const InputItems = ({ id }: { id: any }) => {
       }),
     })
       .then(async (response) => {
-        console.log(response.json());
         setForm( {   name: "",
         price: "",
         restaurant_id: "",
@@ -40,7 +38,6 @@ const InputItems = ({ id }: { id: any }) => {
         router.refresh()
        
       })
-      .catch((error) => console.log(error));
   }
 
   return (

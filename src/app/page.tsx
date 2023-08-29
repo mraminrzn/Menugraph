@@ -13,7 +13,7 @@ export default function Home() {
       <div className="text-center max-sm:grid-cols-1 grid grid-cols-2 w-full">
         <div className="w1/3">
           <p className="w-2.8/3 text-gray-400 p-6 rounded max-md:mt-8 max-md:text-lg mt-28 ml-12 text-2xl text-right">
-            ما در این سایتسعی کردیم که با کمک از بهترین نمونه های داخلی و یا
+            ما در این سایت سعی کردیم که با کمک از بهترین نمونه های داخلی و یا
             خارجی برای شما قابلیت رزرو رستوران ها کافه ها و همچنین سفارش از طریق
             منوی خاص رو در اختیارتون قرار بدیم پس اگر شما هم یکی از کارفرماها
             هستین در استفاده از منوگراف شک نکنید چون با ملبلغ کمی نسبت به کارایی

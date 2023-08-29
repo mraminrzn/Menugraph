@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Eyes } from "./eyesvg/Eyes";
 import { useRouter } from "next/navigation";
+import styles from './Authmodalinput.module.css'
 
 const validname = /^[\u0600-\u06FF\s]+$/;
 const validnumber = /^\d{11}$/;
@@ -17,6 +18,7 @@ interface props {
     phone: string;
     email: string;
     Restaurantname: string;
+    Restaurantnamepa: string;
   };
   inputauthHandeler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   issignin: boolean;
@@ -24,6 +26,8 @@ interface props {
 }
 
 const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props) => {
+  console.log(inputs.Restaurantnamepa);
+  
 
   const router = useRouter()
   const [eyes, setEyes] = useState(false);
@@ -31,14 +35,11 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
   const [errorauth, setErrorauth] = useState("");
   const [succes, setSucces] = useState(false);
   const [loading , setLoiading] = useState(false)
-  const [token , setToken] = useState('')
 
-  console.log(inputs.Restaurantname);
   
 
   
   function submithandeler() {
-    console.log(validname.test(inputs.Restaurantname));
 
 
     if (issignin) {
@@ -66,7 +67,6 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             setSucces(false);
             setErrorauth("همچین ایمیلی وجود ندارد ");
             setLoiading( false)
-            console.log(e.status);
             
              
           } else if (e.status === 404) {
@@ -102,6 +102,9 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
       } else if (!validname.test(inputs.Restaurantname)) {
         setErrorauth("اسم کافه یا رستوران اشتباه می باشد ");
 
+      }else if (inputs.Restaurantnamepa.length < 2) {
+        setErrorauth("اسم کافه یا رستوران اشتباه می باشد ");
+
       } else if (!validnumber.test(inputs.phone)) {
         setErrorauth("شماره تلفن اشتباه است");
 
@@ -128,9 +131,11 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             name: inputs.name,
             lastname: inputs.lastname,
             Restaurantname: inputs.Restaurantname.replace( " " , "-"),
+            Restaurantnamepa: inputs.Restaurantnamepa.replace( " " , "-"),
             phone: inputs.phone,
             email: inputs.email,
             password: inputs.password,
+            
           }),
         })
           .then((data) => {
@@ -154,7 +159,6 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
             }
           })
           .catch((e) => {
-            console.log(e);
             setLoiading( false)
 
           });
@@ -189,21 +193,31 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
           <div className=" my-3 flex justify-between text-sm">
             <input
               onChange={inputauthHandeler}
-              name="phone"
-              value={inputs.phone}
-              type="number"
-              placeholder="شماره تلفن"
-              className=" bg-gray-800 border-none text-right h-10   placeholder:text-right text-gray-400 border rounded p-2 py-3 w-[49%]"
-            />
-            <input
-              onChange={inputauthHandeler}
               name="Restaurantname"
               value={inputs.Restaurantname}
               type="text"
               placeholder="اسم رستوران یا کافه"
               className=" bg-gray-800 border-none text-right h-10 focus:border-none placeholder:text-right text-gray-400 border rounded p-2 py-3 w-[49%]"
             />
+            <input
+              onChange={inputauthHandeler}
+              name="Restaurantnamepa"
+              value={inputs.Restaurantnamepa}
+              type="text"
+              placeholder="  اسم رستورات یا کافه به لاتین"
+              className=" bg-gray-800 border-none text-right h-10 focus:border-none placeholder:text-right text-gray-400 border rounded p-2 py-3 w-[49%]"
+            />
           </div>
+          <div className=" flex justify-center">
+            <input
+              onChange={inputauthHandeler}
+              name="phone"
+              value={inputs.phone}
+              type="number"
+              placeholder="شماره تلفن"
+              className=" bg-gray-800 border-none text-right h-10   placeholder:text-right text-gray-400 border rounded p-2 py-3 w-[49%]"
+            />
+            </div>
         </>
       )}
 
@@ -260,7 +274,7 @@ const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props)
         role="status"
       >
         
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+        <span className="!absolute !-m-px animate-pulse !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
           Loading...
         </span>
       </div>

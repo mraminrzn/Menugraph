@@ -4,6 +4,7 @@ import React from 'react';
 import InputItems from '../../components/me/InputItems';
 import ItemsCard from '../../components/Items/ItemsCard';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 interface TokenData {
   email?: string;
@@ -19,20 +20,29 @@ interface PageProps {
   };
 }
 
+
 const page = async ({ params: { token } }: PageProps): Promise<JSX.Element> => {
   const data = decode(token) as TokenData;
-  console.log(data?.email, data?.name);
+
+  console.log(token);
+  
 
   if (!cookies().has("JWT")) {
-    
+    redirect('/not-found')
   }
+  
+  if (typeof(data) === typeof("hi") || data === null) {
+    redirect('/not-found')
+  }
+  
+  console.log(typeof(data) , data);
   
 
   return (
     <main className=' flex flex-col justify-center items-center'>
-      <h1 className=' text-2xl text-gray-300 mt-20 max-sm:text-lg '> {`سلام ${data.name} به حساب رستوران ${data.restaurantname}  خوش آمدی`}</h1>
+      <h1 className=' text-2xl text-gray-300 mt-20 max-sm:text-lg '> {`سلام ${data &&  data.name} به حساب رستوران ${ data && data.restaurantname}  خوش آمدی`}</h1>
       <p className=' text-gray-400 text-2xl mt-20 max-sm:text-lg'>اپلود ایتم های جدید </p>
-      <InputItems id={data?.id} />
+      <InputItems id={data && data?.id} />
       <ItemsCard />
     </main>
   );

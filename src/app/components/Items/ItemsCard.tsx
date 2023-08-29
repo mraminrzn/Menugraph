@@ -7,7 +7,6 @@ export default async function ItemsCard () {
     const staikData = await getStaiks()
     const kababData = await getKabab()
     
-    console.log(kababData);
     
 
   return (
