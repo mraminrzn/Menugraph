@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 export async function getStaiks() {
     
-    const staiks = prisma.item.findMany({
+    const staiks = await prisma.item.findMany({
         where : {
             category : "استیک"
         }
@@ -16,9 +16,9 @@ export async function getStaiks() {
 
         }
     })
-    const data = await staiks
-
-    return data
+ 
+    
+    return staiks
 
 
 }
