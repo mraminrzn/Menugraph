@@ -26,8 +26,17 @@ input[type=number] {
   }
 }
 
-body {
+.body-dark {
   color: rgb(var(--foreground-rgb));
-  background: #16161a
-}
+  background-image: linear-gradient(to right bottom, #16161a, #18242c, #163537, #244436, #455030);}
 
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background-color: white;
+}

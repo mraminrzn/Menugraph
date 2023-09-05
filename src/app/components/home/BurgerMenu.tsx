@@ -19,7 +19,7 @@ export default function BurgerMenu({loggedin , data }:props ) {
 
   return (
     <div>
-      <nav className=' mt20 fixed top-0 left-0 right-0 h-14 flex justify-between items-center px-4  backdrop-blur-lg '>
+      <nav className=' mt20 fixed top-0 left-0 right-0 h-14 flex justify-between items-center z-50 px-4  backdrop-blur-lg '>
       <div className="flex items-center">
 
         <Image
