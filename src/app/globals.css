@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -26,9 +27,8 @@ input[type=number] {
   }
 }
 
-.body-dark {
-  color: rgb(var(--foreground-rgb));
-  background-image: linear-gradient(to right bottom, #16161a, #18242c, #163537, #244436, #455030);}
+
+
 
 .swiper-slide {
   display: flex;

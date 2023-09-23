@@ -16,7 +16,7 @@ export async function GET(req : NextRequest ) {
         select : {
            Restaurantnamepa : true ,
            phone : true , 
-           items : true
+           items : true,
 
         }
     })

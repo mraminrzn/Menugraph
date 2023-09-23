@@ -34,11 +34,12 @@ const InputItems = ({ id }: { id: any }) => {
         price: "",
         restaurant_id: "",
         image: "",
-        category: "",})
+        category: "کباب",})
         router.refresh()
        
       })
   }
+  
 
   return (
     <form className="bg-neutral-800 p-10 rounded-2xl m-8 w-2/4 max-sm:w-4/5 flex flex-col justify-between">

@@ -44,7 +44,7 @@ export default function LoginModal({isignin , setclick} : {isignin : boolean , s
     <div>
       <button
         onClick={handleOpen}
-        className=" text-gray-100   text-lg transition duration-500 hover:text-emerald-600"
+        className=" dark:text-gray-100 text-black   text-lg transition duration-500 hover:text-emerald-600"
         >
         {isignin ? "ورود" : "ثبت نام"}
       </button>

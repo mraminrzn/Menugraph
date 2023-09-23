@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Eyes } from "./eyesvg/Eyes";
 import { useRouter } from "next/navigation";
-import styles from './Authmodalinput.module.css'
 
 const validname = /^[\u0600-\u06FF\s]+$/;
 const validnumber = /^\d{11}$/;
@@ -26,7 +25,6 @@ interface props {
 }
 
 const Authmodalinput = ({ inputs, inputauthHandeler, issignin , setOpen}: props) => {
-  console.log(inputs.Restaurantnamepa);
   
 
   const router = useRouter()

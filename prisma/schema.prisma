@@ -36,6 +36,7 @@ model Restaurant {
   Restaurantname String        @unique
   Restaurantnamepa String        @unique
   logo           String?
+  QrCode         String?
   accepted       Boolean       @default(false)
   items          Item[]
   reserve_list   ReserveList[]

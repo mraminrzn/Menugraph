@@ -29,7 +29,7 @@ const DeleteCookiescomponent = ({setclick} : {setclick : Function}) => {
     return (
         <div onClick={deleteCook }
          
-        className=" text-gray-100 text-lg max-md:text-sm transition duration-500 hover:text-emerald-600 cursor-pointer"
+        className=" dark:text-gray-100 text-black text-lg duration-75 max-md:text-sm transition  hover:text-emerald-600 cursor-pointer"
       >
         خروج
       

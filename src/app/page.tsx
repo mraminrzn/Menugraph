@@ -1,33 +1,31 @@
 import Image from "next/image";
 import Whycard from "./components/home/Whycard";
-import Footer from "./components/home/Footer";
 import SwiperList from "./components/home/Swiper";
 
 export default function Home() {
-  const scrollHandeler = () => {};
 
   return (
-    <main className="text-gray-200 mt-20 w-full ">
-      <h1 className="text-4xl max-sm:text-lg text-center mt-10">
-        به سایت خودتون یعنی منوگراف خوش آمد
+    <main className=" text-black  dark:text-gray-200   mt-20 w-full dark ">
+      <h1 className="text-4xl    max-sm:text-xl text-center mt-10">
+        به سایت خودتون یعنی منوگراف خوش آمدید
       </h1>
       <div className="text-center max-sm:grid-cols-1 grid grid-cols-2 w-full">
         <div className="w1/3">
-          <p className="w-2.8/3 text-gray-400 p-6 rounded max-md:mt-8 max-md:text-lg mt-28 ml-12 text-2xl text-right">
+          <p className="w-2.8/3   p-6 rounded  max-md:mt-8 max-md:text-lg mt-28 ml-12 text-2xl text-right">
          در این سایت یک گروه برنامه نویس و طراحی گرافیک جوان دور هم جمع شدیم تا با ایده های خلاقانه و مهارت هایی نظیر برنامه نویسی طراحی و طراحی گرافیکی به شما و توسعه کسب و کارتون کمک کنیم و تضمین ما رضایت شماست
           </p>
-          <button className="bg-indigo-600 text-4xl hover:cursor-alias px-8 py-4 rounded-lg">
+          <button className=" text-4xl hover:cursor-alias px-8 py-4 rounded-lg">
               MenuGraph          </button>
         </div>
         <div className="mr-8 w1/3">
           <img src="/images/banner.svg" />
         </div>
       </div>
-      <h1 className=" text-center text-3xl text-gray-300 mb-8">نمونه کارهای منوگراف</h1>
+      <h1 className=" text-center text-3xl  mb-8">نمونه کارهای منوگراف</h1>
       <SwiperList />
 
       <section className="w-full h-full">
-        <h1 className=" mt-24 max-md:text-2lg text-center text-3xl dark:text-blue-700">
+        <h1 className=" mt-24 max-md:text-2lg   text-center text-3xl ">
           {" "}
           چرا منوگراف و انتخاب کنم ؟
         </h1>

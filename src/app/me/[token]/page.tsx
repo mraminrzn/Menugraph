@@ -24,7 +24,6 @@ interface PageProps {
 const page = async ({ params: { token } }: PageProps): Promise<JSX.Element> => {
   const data = decode(token) as TokenData;
 
-  console.log(token);
   
 
   if (!cookies().has("JWT")) {
@@ -35,7 +34,6 @@ const page = async ({ params: { token } }: PageProps): Promise<JSX.Element> => {
     redirect('/not-found')
   }
   
-  console.log(typeof(data) , data);
   
 
   return (

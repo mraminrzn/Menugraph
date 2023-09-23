@@ -18,14 +18,14 @@ export default function App() {
         effect={'cards'}
         grabCursor={true}
         modules={[EffectCards]}
-        className=" max-md:w-56 max-md:h-96 w-[800px] h-[550px] z-10"
+        className=" max-md:w-52 max-md:h-96 w-[800px] h-[550px] z-10"
       >
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test1.jpg' /></SwiperSlide>
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test2.jpg' /></SwiperSlide>
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test3.jpg' /></SwiperSlide>
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test4.jpg' /></SwiperSlide>
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test5.jpg' /></SwiperSlide>
-        <SwiperSlide><img className=' w-[800px] h-[732px]' src='/images/test6.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test1.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test2.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test3.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test4.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test5.jpg' /></SwiperSlide>
+        <SwiperSlide><img className=' max-md:w-52 max-md:h-96 w-[800px] h-[732px]' src='/images/test6.jpg' /></SwiperSlide>
    
       </Swiper>
     </>
